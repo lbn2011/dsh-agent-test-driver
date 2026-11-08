@@ -1,0 +1,30 @@
+{
+  "name": "dsh-agent-test-driver",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Host-only DSH plugin that lets an agent read a sanitized status of ONE isolated test DSH, and change or invoke only admin-allowlisted test plugin entries and tools, through native DSH surfaces. Not a sandbox, not a general plugin manager.",
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./policy": "./src/policy.js",
+    "./admission-evidence": {
+      "types": "./src/admission-evidence.d.ts",
+      "import": "./src/admission-evidence.js"
+    },
+    "./acceptance": {
+      "types": "./src/acceptance.d.ts",
+      "import": "./src/acceptance.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\""
+  }
+}

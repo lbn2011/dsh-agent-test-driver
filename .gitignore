@@ -1,0 +1,18 @@
+node_modules/
+dist/
+coverage/
+.cache/
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+.DS_Store
+.idea/
+.vscode/
+
+# Raw acceptance/test evidence is kept outside the repository, under
+# /data/dsh-ecosystem-test-artifacts (same relative paths). Only the index
+# README stays here; the original run directories are not committed.
+docs/testing/runs/*
+!docs/testing/runs/README.md
