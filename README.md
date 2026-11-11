@@ -19,7 +19,7 @@ Neither layer is an installation, a release or a host-compatibility certificatio
 
 ## Package surface
 
-[package.json](package.json) is private (`dsh-agent-test-driver@0.0.0`), `type: module`, `engines.node >= 24.9.0`. It declares no dependencies: the entry imports the host's own `@deepseek-ai/schemastery` and `@deepseek-ai/dsh-tools`, which the host provides.
+[package.json](package.json) is private (`dsh-agent-test-driver@0.1.0-draft.1`, MIT), `type: module`, `engines.node >= 24.9.0`. It declares no dependencies: the entry imports the host's own `@deepseek-ai/schemastery` and `@deepseek-ai/dsh-tools`, which the host provides.
 
 | Export | File | Contents |
 |---|---|---|
@@ -139,7 +139,7 @@ The suite is direct `node --test` over `tests/*.test.js` — ten files as of 202
 - **Not a sandbox.** The launcher is trusted and everything runs in one process; provenance stops a *model* from asserting identity, not the process from lying to itself.
 - **One host version at a time.** The recorded real-host evidence is one pinned version `0.2.2-alpha.2` (pin `ce7073d51254c26cd63b22a60835b8f948deb447`). No compatibility range, upgrade path or cross-version claim.
 - **No ownership allow path** (see above), so recorded invocation evidence is refusal evidence only.
-- **No installation, publish, tarball or licence.** The package is private and unversioned at `0.0.0`; no npm identity is claimed.
+- **No installation, publish or tarball.** The package is private, versioned `0.1.0-draft.1` and MIT, but no npm identity is claimed and nothing is published.
 - **Evidence is bounded per run.** Historic counts describe the code snapshot of their own date; they are not re-validated by this README.
 - **The `testRoot`/`profileMarker` fields are declared** (see above). Declaring them changes one behaviour: a present, non-null, non-`undefined` value of another type now fails host config parsing instead of reaching the probe; `null`, `undefined` and `''` still reach it. The schema merge and `simplify` behaviour were read from source, not dynamically tested — this round executed neither `parse` nor `simplify`.
 
